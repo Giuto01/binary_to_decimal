@@ -12,6 +12,6 @@ For execute in Linux:
 
 
 
-Output programm: 
+Output program: 
 
 ![](screenshot/output.PNG) 
