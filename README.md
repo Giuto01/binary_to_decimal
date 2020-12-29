@@ -9,3 +9,9 @@ The C code include the <math.h> library, for compile the file il Linux:
 For execute in Linux:
 
 :: .\bin_to_dec
+
+
+
+Output programm: 
+
+![](screenshot/output.PNG) 
