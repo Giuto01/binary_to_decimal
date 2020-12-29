@@ -20,7 +20,7 @@ int main(void){
 
 	puts(":: Enter the number in binary format from the least significant to the most significant digit\n");
 
-    load_vet(v, n);
+        load_vet(v, n);
 	bin_to_dec(v, n);
 
 	printf(":: The result is: %d \n", res);
