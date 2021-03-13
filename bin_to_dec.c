@@ -1,57 +1,71 @@
+/*
+ ============================================================================
+ Name        : bin_to_dec.c
+ Author      : Vito Proscia
+ Version     : 1.1
+ Description : Converte the binary code in decimal
+ ============================================================================
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#define MAX_DIGITS 100
 
 // Prototypes
-int load_vet(int vet[], int dim);
-void bin_to_dec(int vet[], int dim);
-
-int i, res;
+void Load_array(int arr[], int dim);
+int Binary_to_decimal(int arr[], int dim);
 
 int main(void){
 
-	int n;
+	int digits[MAX_DIGITS];
+	unsigned short numbers;
+	int result;
+
+	result = 0;
+
 	printf(":: Enter the number of digits of the binary code: ");
-	scanf("%d", &n);
+	scanf("%hu", &numbers);
 
-	int v[n];
+	printf(":: Enter the number in binary format from the least significant to the most significant digit: \n");
 
-	res = 0;
+	Load_array(digits, numbers);
+	result = Binary_to_decimal(digits, numbers);
 
-	puts(":: Enter the number in binary format from the least significant to the most significant digit\n");
+	printf(":: The result is: %d \n", result);
 
-        load_vet(v, n);
-	bin_to_dec(v, n);
-
-	printf(":: The result is: %d \n", res);
-	system("pause");
 	return 0;
 }
 
-
 // Load array
-int load_vet(int vet[], int dim){
+void Load_array(int arr[], int dim){
+
+	int i;
 
 	for(i = 0; i < dim; i++){
 
-		printf(":: Enter the %d digit: ", (i + 1));
-		scanf("%d", &vet[i]);
+		do{
 
-		// Check if the number is in binary code
-		if( vet[i] != 0 && vet[i] != 1){
+			printf(":: Enter the %d digit (1 or 0): ", (i + 1));
+			scanf("%d", &arr[i]);
 
-			printf(":: Invalid number\n");
-            return 1;
-		}
+		}while(arr[i] != 0 && arr[i] != 1); // Check if the number is in binary code
+
 	}
+
 }
 
 // Convert from binary to decimal
-void bin_to_dec(int vet[], int dim){
+int Binary_to_decimal(int arr[], int dim){
+
+	int i, currentResult;
+
+	currentResult = 0;
 
 	for(i = 0; i < dim; i++){
 
-		res += vet[i] * pow(2, i);
-		
+		currentResult += arr[i] * pow(2, i);
+
 	}
+
+	return currentResult;
 }
