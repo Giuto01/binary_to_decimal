@@ -14,4 +14,4 @@ For execute in Linux:
 
 Output program: 
 
-![](screenshot/output.PNG) 
+![](screenshot/output1.PNG) 
